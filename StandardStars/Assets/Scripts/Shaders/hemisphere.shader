@@ -16,8 +16,8 @@ Shader "Standard Stars/Hemisphere"
 		_ColorB ("Color B",Color) = (1,1,1,1)
 		_ColorStep1 ("Color Step 1",Range(-1,1)) = 0
 		_ColorStep2 ("Color Step 2",Range(-1,1)) = 0.5
-		_Altitude ("Altitude",Range(0,90)) = 10
-		_Azimuth ("Azimuth",Range(0,360)) = 0
+		// _Altitude ("Altitude",Range(0,90)) = 10
+		// _Azimuth ("Azimuth",Range(0,360)) = 0
 		_FOV ("Field of View",Range(0,180)) = 10
     }
     SubShader
@@ -33,6 +33,8 @@ Shader "Standard Stars/Hemisphere"
             #pragma fragment frag
 
             #include "UnityCG.cginc"
+			#include "helper.hlsl"
+
             struct appdata
             {
                 float4 vertex : POSITION;
@@ -59,7 +61,11 @@ Shader "Standard Stars/Hemisphere"
             }
 
 			fixed4 _ColorA,_ColorB;
-			float _Altitude,_Azimuth,_FOV,_SphereRadius,_ColorStep1,_ColorStep2;
+			float _FOV,_SphereRadius,_ColorStep1,_ColorStep2;
+
+			int _NumElements;
+			float _AzimuthArray[32];
+			float _AltitudeArray[32];
 
 			void getAzimuth(float3 pos){
 				// float vert_az = atan2(pos.z,pos.x) + pi;//0,TWO_PI
@@ -83,14 +89,10 @@ Shader "Standard Stars/Hemisphere"
 				return acos(d/m);
 			}
 
-			float getTorchAlpha(float3 vertPos){
-				float pi = 3.14159265359;
-				float twopi = pi * 2;
-				float halfpi = pi/2;
-				float deg2rad = 0.01745329251;
-				float torch_alt = _Altitude * deg2rad;
-				float torch_az = _Azimuth * deg2rad * -1 + halfpi;//offset, so north is 0
-				float torch_fov = _FOV * deg2rad;
+			float getTorchAlpha(float3 vertPos,float _Azimuth,float _Altitude){
+				float torch_alt = _Altitude * DEG_2_RAD;
+				float torch_az = _Azimuth * DEG_2_RAD * -1 + HALF_PI;//offset, so north is 0
+				float torch_fov = _FOV * DEG_2_RAD;
 
 				float3 torch_cart = altAzToCartesian(torch_alt,torch_az);
 				float angle = angleBetween(torch_cart,vertPos);
@@ -99,14 +101,17 @@ Shader "Standard Stars/Hemisphere"
 
             fixed4 frag (v2f i) : SV_Target
             {
-				float pi = 3.14159265359;
-				float twopi = pi * 2;
-				float halfpi = pi/2;
+				float torch_a = 1;
+				for(int index = 0; index < _NumElements; index++){
+					float a = getTorchAlpha(i.worldPos,_AzimuthArray[index],_AltitudeArray[index]);
+					torch_a = min(torch_a,a);
+				}
 
-				float torch_a = getTorchAlpha(i.worldPos);
-				float alt = getAltitude(i.worldPos) / halfpi;
+				// float torch_a = getTorchAlpha(i.worldPos);
 
-			//this should be airmass
+				float alt = getAltitude(i.worldPos) / HALF_PI;
+
+				//this should be airmass
 				float alt_t = smoothstep(_ColorStep1,_ColorStep2,alt);
 
 				fixed4 fillCol = lerp(_ColorA,_ColorB,alt_t);

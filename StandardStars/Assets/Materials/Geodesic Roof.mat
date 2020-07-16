@@ -7,13 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Torch
-  m_Shader: {fileID: 4800000, guid: 3662cbcc67e774e4fbccdc831e1664b5, type: 3}
+  m_Name: Geodesic Roof
+  m_Shader: {fileID: 4800000, guid: 8968e6c5388d613498910e7deca3e225, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3020
+  m_CustomRenderQueue: 3010
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -49,38 +49,42 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaClip: 0
-    - _Bias: 0.308
     - _Blend: 0
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Exponent: 1.04
+    - _FaceCull: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _GradientStep1: 27.6
+    - _GradientStep2: 123.34
+    - _Hypotenuse: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Scale: 0.834
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _WireSize: 0.967
+    - _WireSmoothness: 0.0324
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Edge: {r: 0, g: 0, b: 0, a: 0}
+    - _Edge1: {r: 0, g: 0, b: 0, a: 0.5176471}
+    - _Edge2: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Fill: {r: 1, g: 1, b: 1, a: 1}
+    - _Fill: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &5913481729914390045
+--- !u!114 &8259763468589890409
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
