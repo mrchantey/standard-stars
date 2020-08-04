@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.011754718, g: 0.017645575, b: 0.040396586, a: 1}
+  m_IndirectSpecularColor: {r: 0.011754692, g: 0.017645529, b: 0.04039651, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -944,6 +944,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6562000584640021586, guid: 068993f1e3606ca45bb3124c6de3a078, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6562000584640021587, guid: 068993f1e3606ca45bb3124c6de3a078, type: 3}
       propertyPath: floorDay
       value: 0
@@ -1158,7 +1162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &499726361
 Transform:
   m_ObjectHideFlags: 0
@@ -1814,7 +1818,7 @@ GameObject:
   - component: {fileID: 1258393567}
   - component: {fileID: 1258393566}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Spotlight Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
