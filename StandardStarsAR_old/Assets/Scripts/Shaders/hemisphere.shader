@@ -117,7 +117,7 @@ Shader "Standard Stars/Hemisphere"
 				fixed4 fillCol = lerp(_ColorA,_ColorB,alt_t);
 
 				// fixed4 col = fixed4(t,t,t,1);
-				fixed4 col = fixed4(fillCol.rgb,fillCol.a * torch_a);
+				fixed4 col = fixed4(fillCol.xyz,torch_a);
                 return col;
             }
             ENDCG
