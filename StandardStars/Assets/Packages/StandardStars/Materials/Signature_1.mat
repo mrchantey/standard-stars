@@ -69,7 +69,7 @@ Material:
     - _Cutoff: 0.5
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FrameIndex: 28
+    - _FrameIndex: 8
     - _FrameNumber: 0
     - _FramesPerSecond: 0.33
     - _GlossMapScale: 0

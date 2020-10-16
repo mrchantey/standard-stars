@@ -18,7 +18,6 @@ Shader "Ahoy/Wireframe - Vertical Gradient"
     {
         Tags { "Queue"="Transparent" "RenderType"="Transparent"}
         ZWrite Off
-		// ZTest Off
         // ZWrite [_ZWrite]
         Blend SrcAlpha OneMinusSrcAlpha
         Cull [_FaceCull]

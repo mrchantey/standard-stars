@@ -66,23 +66,30 @@ Shader "Ahoy/Line"
                 float3 offUp0;
                 float3 offUp1;
                 if(_FixedSize == 0){
-                    offUp0 = -dirUp * _LineWidth;
-                    offUp1 = -dirUp * _LineWidth;
+                    offUp0 = dirUp * _LineWidth;
+                    offUp1 = dirUp * _LineWidth;
                 }else{
                     float screenScale0 = GetScreenScale(IN[0].pos,_LineWidth);
                     float screenScale1 = GetScreenScale(IN[1].pos,_LineWidth);
                     offUp0 = dirUp * screenScale0;
                     offUp1 = dirUp * screenScale1;
+					if (_ProjectionParams.x < 0){
+						//flip for dx11, this should probably be in getscreenscale
+						//https://docs.unity3d.com/Manual/SL-PlatformDifferences.html
+						offUp0 *= -1;
+						offUp1 *= -1;
+					}
                 }
 
+
                 g2f OUT;
-                OUT.pos = Object2OffsetClipPos(IN[1].pos,-offUp1);
-                triStream.Append(OUT);
-                OUT.pos = Object2OffsetClipPos(IN[0].pos,-offUp0);
-                triStream.Append(OUT);
                 OUT.pos = Object2OffsetClipPos(IN[1].pos,offUp1);
                 triStream.Append(OUT);
                 OUT.pos = Object2OffsetClipPos(IN[0].pos,offUp0);
+                triStream.Append(OUT);
+                OUT.pos = Object2OffsetClipPos(IN[1].pos,-offUp1);
+                triStream.Append(OUT);
+                OUT.pos = Object2OffsetClipPos(IN[0].pos,-offUp0);
                 triStream.Append(OUT);
             }
 

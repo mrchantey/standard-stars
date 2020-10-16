@@ -10,6 +10,8 @@ namespace Ahoy
 	[CanEditMultipleObjects]
 	public class PackageExporter : InvocableSO
 	{
+
+		public bool debug;
 		public bool selectContents;
 		public string assetPath = "Assets/Packages";
 		public string fileName = "../../unity-packages/mypkg";
@@ -17,6 +19,7 @@ namespace Ahoy
 		public override void Invoke()
 		{
 			AssetDatabase.ExportPackage(assetPath, $"{fileName}.unitypackage", ExportPackageOptions.Recurse);
+			if (debug) Debug.Log($"Package Export Success! - {assetPath}");
 		}
 
 	}
