@@ -6,6 +6,10 @@
 
 #include "UnityCG.cginc"
 
+static const float PI = 3.14159265359;
+static const float TWO_PI = 6.28318530718;
+
+
 float4 Object2OffsetClipPos(float4 pos,float3 offset){
   float4 v = float4(pos + offset,1);
   return UnityObjectToClipPos(v);

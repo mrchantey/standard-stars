@@ -33,10 +33,10 @@ Shader "Ahoy/Fresnel"
 
             struct v2f
             {
-                float2 uv : TEXCOORD0;
-				float3 normal : NORMAL;
+                // float2 uv : TEXCOORD0;
+				// float3 normal : NORMAL;
 				float fresnel : TEXCOORD1;
-				float3 viewNormal : TANGENT;
+				// float3 viewNormal : TANGENT;
                 float4 vertex : SV_POSITION;
             };
 
