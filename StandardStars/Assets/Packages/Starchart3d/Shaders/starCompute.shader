@@ -39,9 +39,10 @@ Properties{
         v2f o;
 		o.pos = vertices[vId];
 		uint qi = vId % 4;
+		uint sId = floor(vId / 4.0);
 		o.uv = float2(floor(qi/2.0),ceil((qi % 3)*0.5));
-		o.id = floor(vId / 4.0);
-		o.twinkle = GetTwinkle(stars[o.id].position);
+		o.id = sId;
+		o.twinkle = GetTwinkle(stars[sId].position);
 	  	return o;
 	}
 
@@ -50,8 +51,8 @@ Properties{
 
 	fixed4 frag(v2f i): SV_TARGET{
 		float a = GetAlpha(i.uv) * i.twinkle;
-		fixed4 col = _UseStarColors ? fixed4(stars[i.id].color.xyz,a) : fixed4(1,1,1,a);
-		return col * _Color;
+		// float a = GetAlpha(i.uv);
+		return fixed4(_Color.xyz,_Color.a * a);
     }
 
     ENDCG

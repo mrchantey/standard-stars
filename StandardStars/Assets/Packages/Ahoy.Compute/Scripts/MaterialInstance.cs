@@ -26,6 +26,8 @@ namespace Ahoy
 		public bool receiveShadows = false;
 		public int layer = 1;
 
+		public bool isInitialized { get; private set; }
+
 
 		GraphicsBuffer indexBufferRef;
 
@@ -37,13 +39,14 @@ namespace Ahoy
 			if (shaderProperties != null)
 				shaderProperties.Apply(material);
 			indexBufferRef = indexBuffer;
+			isInitialized = true;
 		}
 
 		public void Render(Camera camera = null)
 		{
+
 			if (shaderProperties != null & applyShaderPropertiesOnDispatch)
 				shaderProperties.Apply(material);
-
 
 			Graphics.DrawProcedural(
 								material,
@@ -59,6 +62,8 @@ namespace Ahoy
 								layer
 								);
 		}
+
+
 
 		public void SetBounds(Bounds bounds) { this.bounds = bounds; }
 		public void SetMaterial(Material material) { this.material = material; }

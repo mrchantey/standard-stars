@@ -9,9 +9,9 @@ WIP for Anna Madeleine
 
 
 - StandardStars6DOF PC -> Mac
-	- Disable Metal Support
 	- Add Team Id - V5H6L32832
 	- Add Bundle Identifier - org.chantey.standardstars
+	- Add Camera Permissions
 
 # Mechanics
 - Plate views

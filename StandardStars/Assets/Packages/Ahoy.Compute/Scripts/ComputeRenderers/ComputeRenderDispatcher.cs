@@ -1,25 +1,64 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Ahoy.Compute
 {
-
+	[ExecuteAlways]
 	public class ComputeRenderDispatcher : MonoBehaviour
 	{
 
 		public new Camera camera;
 
-		public List<ComputeRendererBase> computeRenderers;
+		public List<ComputeRenderer> computeRenderers;
 
 		UnityEngine.Matrix4x4 V, P, VP;
 
 		Vector4 screenParams;
 
-		void Start()
+		void OnEnable()
 		{
-
+			RenderPipelineManager.beginFrameRendering += OnPreRenderURP;
+			HandleDefaultValues();
 		}
+
+		void OnDisable()
+		{
+			RenderPipelineManager.beginFrameRendering -= OnPreRenderURP;
+		}
+
+		void OnPreRenderURP(ScriptableRenderContext context, Camera[] cameras)
+		{
+			Render();
+		}
+
+		void Render()
+		{
+			// Debug.Log($"ComputeRenderDispatcher - {Time.frameCount}");
+			var renderers = computeRenderers
+			.Where(i =>
+				i.gameObject.activeInHierarchy &&
+				i.isInitialized
+				)
+			.ToArray();
+			HandleTime();
+			HandleMatrices(renderers);
+			HandleScreenParams();
+			renderers.ForEach(m => m.Render(camera));
+		}
+
+		void HandleDefaultValues()
+		{
+			Shader.SetGlobalFloat("_Size", 1);
+			Shader.SetGlobalFloat("_ScaleDivisor", 1);
+			Shader.SetGlobalFloat("_ScaleRange", 0);
+			Shader.SetGlobalFloat("_ScaleMax", 1);
+			Shader.SetGlobalInt("_ScreenSpace", 0);
+			// Shader.SetGlobalColor("_Color", Color.white);
+		}
+
+		// UnityEngine.Rendering.
 
 		void HandleScreenParams()
 		{
@@ -33,7 +72,7 @@ namespace Ahoy.Compute
 			}
 		}
 
-		void HandleMatrices(ComputeRendererBase[] renderers)
+		void HandleMatrices(ComputeRenderer[] renderers)
 		{
 			MatrixUtility.CalculateViewProjectionMatrices(camera, out V, out P, out VP);
 			Shader.SetGlobalMatrix("Ahoy_V", V);
@@ -60,24 +99,6 @@ namespace Ahoy.Compute
 		{
 			Shader.SetGlobalFloat("Ahoy_DeltaTime", Time.deltaTime);
 			Shader.SetGlobalFloat("Ahoy_Time", Time.time);
-		}
-
-		void Update()
-		{
-			var renderers = computeRenderers
-			.Where(i =>
-				i.gameObject.activeInHierarchy &&
-				i.computeInstance != null &&
-				i.computeInstance.base_isInitialized)
-			.ToArray();
-			HandleTime();
-			HandleMatrices(renderers);
-			HandleScreenParams();
-			renderers.ForEach(m =>
-			{
-				m.computeInstance.Dispatch();
-				m.materialInstance.Render(camera);
-			});
 		}
 
 	}

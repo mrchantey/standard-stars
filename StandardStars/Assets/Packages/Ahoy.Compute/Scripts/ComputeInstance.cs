@@ -7,9 +7,9 @@ namespace Ahoy.Compute
 
 	public class ComputeInstance : MonoBehaviour
 	{
+
 		// public bool debug = true;
 		[SerializeField]
-		ComputeShader computeTemplate = null;
 
 		[HideInInspector]
 		public ComputeShader computeShader;
@@ -22,21 +22,22 @@ namespace Ahoy.Compute
 
 		public int kernelIndex { get; private set; }
 
-		public bool base_isInitialized { get; private set; }
-
-		public void Init(int numThreads)
+		public void Init(ComputeShader computeTemplate, int numThreads)
 		{
 			//ceil instead to generate all
-			Init(numThreads, 1, 1);
+			Init(computeTemplate, numThreads, 1, 1);
 			// int width = Mathf.FloorToInt(Mathf.Pow(numThreads, 1 / 2f));
 			// Init(width, width, 1);
 			// Init(width, width, width);
 			// Init(numThreads, 1, 1); 
 		}
 
-		public void Init(Vector3Int numThreads) { Init(numThreads.x, numThreads.y, numThreads.z); }
+		public void Init(ComputeShader computeTemplate, Vector3Int numThreads)
+		{
+			Init(computeTemplate, numThreads.x, numThreads.y, numThreads.z);
+		}
 
-		public void Init(int numThreadsX, int numThreadsY, int numThreadsZ)
+		public void Init(ComputeShader computeTemplate, int numThreadsX, int numThreadsY, int numThreadsZ)
 		{
 			computeShader = Instantiate(computeTemplate);
 
@@ -58,7 +59,6 @@ namespace Ahoy.Compute
 
 			if (shaderProperties != null)
 				shaderProperties.Apply(computeShader, kernelIndex);
-			base_isInitialized = true;
 		}
 
 		//from that lady
@@ -72,16 +72,10 @@ namespace Ahoy.Compute
 
 		public virtual void Dispatch()
 		{
-			if (!base_isInitialized)
-				Debug.LogWarning($"ComputeInstance - not initialized");
-			else
-			{
-				if (shaderProperties != null & applyShaderPropertiesOnDispatch)
-					shaderProperties.Apply(computeShader, kernelIndex);
-				computeShader.Dispatch(kernelIndex, numGroups.x, numGroups.y, numGroups.z);
-			}
+			if (shaderProperties != null & applyShaderPropertiesOnDispatch)
+				shaderProperties.Apply(computeShader, kernelIndex);
+			computeShader.Dispatch(kernelIndex, numGroups.x, numGroups.y, numGroups.z);
 		}
-
 
 		//this should only be done after initialization
 		public void SetBool(String name, bool val) { computeShader.SetBool(name, val); }
