@@ -2,6 +2,7 @@ Shader "Starchart3D/Star Compute"
 {
 Properties{ 
     _Color ("Color",Color) = (1,1,1,1)
+	[MaterialToggle] _UseStarColors("Use Star Colors", Float) = 0
 	[Header(Culling)][Space(10)]
 	[Enum(Off,0,On,1)]_ZWrite ("ZWrite", Float) = 0
 	[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest("ZTest", Float) = 4 				//LessEqual
@@ -26,6 +27,7 @@ Properties{
     #include "UnityCG.cginc"
     #include "./starUtilityRender.cginc"
 
+
 	struct v2f{
 		float4 pos: SV_POSITION;
 		float2 uv: TEXCOORD0;
@@ -44,10 +46,11 @@ Properties{
 	}
 
 	fixed4 _Color;
+	float _UseStarColors;
 
 	fixed4 frag(v2f i): SV_TARGET{
 		float a = GetAlpha(i.uv) * i.twinkle;
-		fixed4 col = fixed4(stars[i.id].color.xyz,a);
+		fixed4 col = _UseStarColors ? fixed4(stars[i.id].color.xyz,a) : fixed4(1,1,1,a);
 		return col * _Color;
     }
 
