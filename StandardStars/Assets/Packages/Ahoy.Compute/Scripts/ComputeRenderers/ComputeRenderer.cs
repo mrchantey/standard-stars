@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Ahoy.Compute
 {
 
-	[ExecuteAlways]
+	// [ExecuteAlways]
 	[RequireComponent(typeof(ComputeInstance), typeof(MaterialInstance))]
 	public class ComputeRenderer : MonoBehaviour
 	{

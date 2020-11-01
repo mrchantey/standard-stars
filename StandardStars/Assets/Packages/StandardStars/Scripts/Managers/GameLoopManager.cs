@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 using Ahoy;
 
@@ -14,7 +15,8 @@ namespace StandardStars
 		public PlateViewManager plateViewManager;
 		public HotColdManager hotColdManager;
 		public ScoreKeeper scoreKeeper;
-		public FinaleManager finaleManager;
+
+		public Transform[] transformsToReset;
 
 		[Range(0, 60)]
 		public float delay = 10;
@@ -29,11 +31,13 @@ namespace StandardStars
 		void OnTargetReached()
 		{
 			if (debug) Debug.Log($"GameLoopManager - target reached");
-			plateViewManager.PlateToSignature();
 			if (scoreKeeper.IncrementScore() == true)
-				finaleManager.BeginFinale();
+				plateViewManager.ViewFinal();
 			else
+			{
+				plateViewManager.PlateToSignature();
 				StartPlateViewDelay();
+			}
 		}
 
 		void StartPlateView()
@@ -56,9 +60,9 @@ namespace StandardStars
 			if (coroutine != null)
 				StopCoroutine(coroutine);
 			scoreKeeper.Reset();
-			finaleManager.Reset();
 			hotColdManager.Reset();
 			plateViewManager.Reset();
+			transformsToReset.ForEach(t => { t.position = Vector3.zero; t.rotation = Quaternion.identity; });
 
 			StartPlateViewDelay();
 		}

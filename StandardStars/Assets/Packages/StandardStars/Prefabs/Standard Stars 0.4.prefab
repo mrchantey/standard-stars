@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6625223723046700212}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &342782205
 MonoBehaviour:
@@ -43,11 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba79cca3f9ade04fa4559e4747c1ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starchart3D: {fileID: 0}
+  starchart3D: {fileID: 2225796253726004542}
   platePrefab: {fileID: 5820216401990489536, guid: d783958c24bd5a8438557b886727b0b8, type: 3}
   signaturePrefab: {fileID: 8962026035445354029, guid: 0411cdd833d23514694399b5c2d6c22d, type: 3}
-  starchartOriginSpawnCircleRadius: 1
-  plateSpawnSphereRadius: 0.5
+  player: {fileID: 6625223722083119465}
+  starchartSpawnRadius: 1.5
+  plateSpawnRadius: 0.3
   plateToSignatureDuration: 3
 --- !u!1 &928337186
 GameObject:
@@ -79,7 +80,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6625223723046700212}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &928337188
 MonoBehaviour:
@@ -426,7 +427,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6625223722083119465}
   m_Father: {fileID: 1924590340}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -595,8 +597,11 @@ MonoBehaviour:
   plateViewManager: {fileID: 342782205}
   hotColdManager: {fileID: 779150917200517971}
   scoreKeeper: {fileID: 4592788820186492989}
-  finaleManager: {fileID: 8443568193731471383}
-  delay: 0
+  transformsToReset:
+  - {fileID: 1924590340}
+  - {fileID: 1773120216}
+  - {fileID: 6625223722083119465}
+  delay: 3
 --- !u!114 &1267539246748236714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,7 +689,7 @@ Transform:
   m_Children:
   - {fileID: 1773120216}
   m_Father: {fileID: 6625223723046700212}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1924590339
 MonoBehaviour:
@@ -778,7 +783,7 @@ Transform:
   m_Children:
   - {fileID: 779150918661171595}
   m_Father: {fileID: 6625223723046700212}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &779150917200517971
 MonoBehaviour:
@@ -1004,7 +1009,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6625223723046700212}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8443568193731471383
 MonoBehaviour:
@@ -1183,7 +1188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f5519e847837a42b6c3715764995d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTemplate: {fileID: 2100000, guid: e6a4550637569214eab5890c6e177c22, type: 2}
+  materialTemplate: {fileID: 2100000, guid: 93a4e4c9007495b448a509b6c512eefb, type: 2}
   material: {fileID: 0}
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -1269,7 +1274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f5519e847837a42b6c3715764995d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTemplate: {fileID: 2100000, guid: fd929f10741de1a49bcfb702a38beff4, type: 2}
+  materialTemplate: {fileID: 2100000, guid: 2d5ebc5f02571064ebb67ae728fdab71, type: 2}
   material: {fileID: 0}
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -1577,7 +1582,7 @@ MonoBehaviour:
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 50000, y: 50000, z: 50000}
-  applyShaderPropertiesOnDispatch: 1
+  applyShaderPropertiesOnDispatch: 0
   instantiateTemplate: 0
   shaderProperties: {fileID: 11400000, guid: 63d9433e1e8ec734d9a9d9b621b552f6, type: 2}
   castShadows: 0
@@ -1663,7 +1668,7 @@ MonoBehaviour:
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 50000, y: 50000, z: 50000}
-  applyShaderPropertiesOnDispatch: 1
+  applyShaderPropertiesOnDispatch: 0
   instantiateTemplate: 0
   shaderProperties: {fileID: 11400000, guid: baaa772c3b84daf4ca8dd6a38da9e7d0, type: 2}
   castShadows: 0
@@ -1960,7 +1965,7 @@ RectTransform:
   - {fileID: 4592788820174151278}
   - {fileID: 4592788820124448056}
   m_Father: {fileID: 6625223723046700212}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5239,7 +5244,7 @@ MonoBehaviour:
   setToCurrentTimeOnStart: 0
   timeType: 4
   useDeltaTime: 1
-  timeIncrement: 10
+  timeIncrement: 0
 --- !u!1 &4997963906250711789
 GameObject:
   m_ObjectHideFlags: 0
@@ -5273,7 +5278,7 @@ Transform:
   - {fileID: 4997963906021941559}
   - {fileID: 4997963906227648570}
   m_Father: {fileID: 6625223723046700212}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4997963906403766048
 GameObject:
@@ -5454,7 +5459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6417033010810792944
 Transform:
   m_ObjectHideFlags: 0
@@ -5530,7 +5535,6 @@ GameObject:
   - component: {fileID: 6625223722083119467}
   - component: {fileID: 6625223722083119464}
   - component: {fileID: 6625223722083119466}
-  - component: {fileID: 417493654}
   m_Layer: 0
   m_Name: Camera Rig
   m_TagString: Untagged
@@ -5554,8 +5558,8 @@ Transform:
   - {fileID: 6625223722643865227}
   - {fileID: 6625223723066343446}
   - {fileID: 6417033010810792944}
-  m_Father: {fileID: 6625223723046700212}
-  m_RootOrder: 1
+  m_Father: {fileID: 1773120216}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6625223722083119467
 MonoBehaviour:
@@ -5607,20 +5611,6 @@ MonoBehaviour:
   - camera: {fileID: 6625223722643865236}
     materials:
     - {fileID: 2100000, guid: 0ce2a4f6f3c42794cb6bc2c7c9d0a387, type: 2}
---- !u!114 &417493654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6625223722083119470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b2cd2c381d9dc40b9b68c131bde79b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  other: {fileID: 1773120216}
-  trackingSpeed: 0.938
 --- !u!1 &6625223722204150719
 GameObject:
   m_ObjectHideFlags: 0
@@ -5976,7 +5966,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1828346473}
-  - {fileID: 6625223722083119465}
   - {fileID: 342782204}
   - {fileID: 779150917200517968}
   - {fileID: 4592788819538128349}

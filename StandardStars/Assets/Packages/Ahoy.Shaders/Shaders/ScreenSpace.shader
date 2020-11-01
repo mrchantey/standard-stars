@@ -65,6 +65,8 @@ Shader "Ahoy/Screen Space Texture"
             fixed4 frag (v2f i) : SV_Target
             {
 				float2 uvScreen = i.screenPos.xy / i.screenPos.w;
+				if (_ProjectionParams.x < 0)
+					uvScreen.y = 1 - uvScreen.y;
 				// float aspect = _ScreenParams.x / _ScreenParams.y;
 				// uvScreen.x *= aspect;
 				uvScreen = TRANSFORM_TEX(uvScreen,_MainTex);

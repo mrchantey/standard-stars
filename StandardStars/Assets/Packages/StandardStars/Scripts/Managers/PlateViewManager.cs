@@ -13,33 +13,53 @@ namespace StandardStars
 		public GameObject starchart3D;
 		public GameObject platePrefab;
 		public GameObject signaturePrefab;
+		public Transform player;
 
 
 		[Range(0, 10)]
-		public float starchartOriginSpawnCircleRadius = 2;
+		public float starchartSpawnRadius = 2;
 		[Range(0, 10)]
-		public float plateSpawnSphereRadius = 0.5f;
+		public float plateSpawnRadius = 0.5f;
 		[Range(0, 10)]
 		public float plateToSignatureDuration = 2;
+		[Range(0, 10)]
+		public float plateToFinaleDuration = 7;
 
 		GameObject plateInstance;
 		List<GameObject> signatureInstances = new List<GameObject>();
 
 		public void StartView(out Transform plate, out Transform origin3D)
 		{
-			var starchartPos = Random.insideUnitCircle.normalized.ToVector3XZ() * starchartOriginSpawnCircleRadius;
+			var starchartPos = Random.insideUnitCircle.normalized.ToVector3XZ() * starchartSpawnRadius;
 
 			starchart3D.transform.position = starchartPos;
 
-			var plateLocalPos = Random.insideUnitCircle.ToVector3XZ().normalized * plateSpawnSphereRadius;
-			var plateWorldPos = plateLocalPos + starchartPos;
-			var plateRotation = Quaternion.LookRotation(plateLocalPos, Vector3.up);
+			var dirPlayerStarchart = (starchartPos - player.position).normalized;
+
+			// var plateLocalPos = Random.insideUnitCircle.ToVector3XZ().normalized * plateSpawnSphereRadius;
+			// var plateWorldPos = plateLocalPos + starchartPos;
+			var platePos = starchartPos + dirPlayerStarchart * plateSpawnRadius;
+			var plateRotation = Quaternion.LookRotation(dirPlayerStarchart, Vector3.up);
 
 
-			plateInstance = GameObject.Instantiate(platePrefab, plateWorldPos, plateRotation);
+			plateInstance = GameObject.Instantiate(platePrefab, platePos, plateRotation);
 
 			plate = plateInstance.transform;
 			origin3D = starchart3D.transform;
+		}
+
+		public void ViewFinal()
+		{
+			plateInstance.transform.parent = player;
+			var starchartLast = starchart3D.transform.position;
+			var plateLast = plateInstance.transform.localPosition;
+			var plateLastRot = plateInstance.transform.localRotation;
+			this.CoroutineTimedLoop(t =>
+			{
+				starchart3D.transform.position = Vector3.Lerp(starchartLast, Vector3.zero, t);
+				plateInstance.transform.localPosition = Vector3.Lerp(plateLast, Vector3.forward * 0.3f, t);
+				plateInstance.transform.localRotation = Quaternion.Slerp(plateLastRot, Quaternion.identity, t);
+			}, plateToFinaleDuration);
 		}
 
 		public void PlateToSignature()
@@ -65,6 +85,8 @@ namespace StandardStars
 		{
 			if (plateInstance != null)
 				GameObject.Destroy(plateInstance);
+			// if (plateInstanceFinal != null)
+			// 	GameObject.Destroy(plateInstanceFinal);
 			signatureInstances.ForEach(go => GameObject.Destroy(go));
 			signatureInstances.Clear();
 		}

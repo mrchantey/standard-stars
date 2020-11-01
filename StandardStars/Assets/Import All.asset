@@ -21,4 +21,4 @@ MonoBehaviour:
   - ../../ahoy.unity/Package-Builds/Ahoy.Compute
   - ../../starchart3d/starchart3d
   debug: 1
-  purgePackagePaths: 1
+  purgePackagePaths: 0

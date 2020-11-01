@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Ahoy.Compute
 {
-	[ExecuteAlways]
+	// [ExecuteAlways]
 	public class ComputeRenderDispatcher : MonoBehaviour
 	{
 
@@ -55,7 +55,7 @@ namespace Ahoy.Compute
 			Shader.SetGlobalFloat("_ScaleRange", 0);
 			Shader.SetGlobalFloat("_ScaleMax", 1);
 			Shader.SetGlobalInt("_ScreenSpace", 0);
-			// Shader.SetGlobalColor("_Color", Color.white);
+			Shader.SetGlobalColor("_Color", Color.white);
 		}
 
 		// UnityEngine.Rendering.
