@@ -18,7 +18,8 @@ MonoBehaviour:
   paths:
   - ../../ahoy.unity/Package-Builds/Ahoy
   - ../../ahoy.unity/Package-Builds/Ahoy.Shaders
+  - ../../ahoy.unity/Package-Builds/Ahoy.Compute
   - ../../starchart3d/starchart3d
   - ../../standard-stars/StandardStars
   debug: 1
-  purgePackagePaths: 1
+  purgePackagePaths: 0

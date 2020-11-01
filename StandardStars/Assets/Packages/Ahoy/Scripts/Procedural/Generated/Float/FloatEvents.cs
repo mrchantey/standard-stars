@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class FloatUnityEvent : UnityEvent<float> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class FloatNamedUnityEvent : UnityEvent<string, float> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class FloatDoubleUnityEvent : UnityEvent<float, float> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class FloatTripleUnityEvent : UnityEvent<float, float, float> { }

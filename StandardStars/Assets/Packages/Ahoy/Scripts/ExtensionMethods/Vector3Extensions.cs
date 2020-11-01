@@ -3,6 +3,8 @@ using UnityEngine;
 
 public static class Vector3Extensions
 {
+	public static int stride = sizeof(float) * 3;
+
 	public static Vector2 XY(this Vector3 vec) { return new Vector2(vec.x, vec.y); }
 	public static Vector2 XZ(this Vector3 vec) { return new Vector2(vec.x, vec.z); }
 	public static Vector2 YZ(this Vector3 vec) { return new Vector2(vec.y, vec.z); }
@@ -39,8 +41,6 @@ public static class Vector3Extensions
 	// {
 	//     return new Vector3(vec.x, vec.y, 0);
 	// }
-
-
 
 
 

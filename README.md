@@ -1,7 +1,17 @@
 # Standard Stars 
 WIP for Anna Madeleine
 
+# Unity Setup Notes
 
+- StandardStars -> StandardStars6DOF
+	- Move Camera Rig to Pose Aggregated Camera Rig -> Aggregator Parent -> AggregatedPose
+	- Add Event Listener to On Reset Button Click: ArOrigin-> Reset
+
+
+- StandardStars6DOF PC -> Mac
+	- Disable Metal Support
+	- Add Team Id - V5H6L32832
+	- Add Bundle Identifier - org.chantey.standardstars
 
 # Mechanics
 - Plate views
@@ -9,6 +19,7 @@ WIP for Anna Madeleine
 	- could be placed in a circle instead to avoid people craning their necks etc.
 - Hot-cold targeting system
 	
+
 
 
 ## Dependencies

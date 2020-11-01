@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class BoolUnityEvent : UnityEvent<bool> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class BoolNamedUnityEvent : UnityEvent<string, bool> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class BoolDoubleUnityEvent : UnityEvent<bool, bool> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class BoolTripleUnityEvent : UnityEvent<bool, bool, bool> { }

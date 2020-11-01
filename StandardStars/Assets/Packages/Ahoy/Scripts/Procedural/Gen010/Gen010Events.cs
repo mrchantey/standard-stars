@@ -10,6 +10,8 @@ namespace Ahoy
 	[Serializable]
 	public class Gen010UnityEvent : UnityEvent<gen010> { }
 	[Serializable]
+	public class Gen010NamedUnityEvent : UnityEvent<string, gen010> { }
+	[Serializable]
 	public class Gen010DoubleUnityEvent : UnityEvent<gen010, gen010> { }
 	[Serializable]
 	public class Gen010TripleUnityEvent : UnityEvent<gen010, gen010, gen010> { }

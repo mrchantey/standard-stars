@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class Color24UnityEvent : UnityEvent<Color24> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class Color24NamedUnityEvent : UnityEvent<string, Color24> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class Color24DoubleUnityEvent : UnityEvent<Color24, Color24> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class Color24TripleUnityEvent : UnityEvent<Color24, Color24, Color24> { }

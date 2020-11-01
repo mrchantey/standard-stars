@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class UlongUnityEvent : UnityEvent<ulong> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class UlongNamedUnityEvent : UnityEvent<string, ulong> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class UlongDoubleUnityEvent : UnityEvent<ulong, ulong> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class UlongTripleUnityEvent : UnityEvent<ulong, ulong, ulong> { }

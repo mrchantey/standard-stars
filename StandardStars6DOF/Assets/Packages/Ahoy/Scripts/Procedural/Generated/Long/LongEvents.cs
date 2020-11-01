@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class LongUnityEvent : UnityEvent<long> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class LongNamedUnityEvent : UnityEvent<string, long> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class LongDoubleUnityEvent : UnityEvent<long, long> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class LongTripleUnityEvent : UnityEvent<long, long, long> { }

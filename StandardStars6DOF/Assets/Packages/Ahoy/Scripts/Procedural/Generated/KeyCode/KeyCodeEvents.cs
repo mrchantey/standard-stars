@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class KeyCodeUnityEvent : UnityEvent<KeyCode> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class KeyCodeNamedUnityEvent : UnityEvent<string, KeyCode> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class KeyCodeDoubleUnityEvent : UnityEvent<KeyCode, KeyCode> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class KeyCodeTripleUnityEvent : UnityEvent<KeyCode, KeyCode, KeyCode> { }

@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class Image2DUnityEvent : UnityEvent<Image2D> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class Image2DNamedUnityEvent : UnityEvent<string, Image2D> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class Image2DDoubleUnityEvent : UnityEvent<Image2D, Image2D> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class Image2DTripleUnityEvent : UnityEvent<Image2D, Image2D, Image2D> { }

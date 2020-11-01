@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class ComputeBufferUnityEvent : UnityEvent<ComputeBuffer> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class ComputeBufferNamedUnityEvent : UnityEvent<string, ComputeBuffer> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class ComputeBufferDoubleUnityEvent : UnityEvent<ComputeBuffer, ComputeBuffer> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class ComputeBufferTripleUnityEvent : UnityEvent<ComputeBuffer, ComputeBuffer, ComputeBuffer> { }

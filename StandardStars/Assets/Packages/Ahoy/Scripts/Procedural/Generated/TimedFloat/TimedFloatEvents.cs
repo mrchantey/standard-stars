@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class TimedFloatUnityEvent : UnityEvent<TimedFloat> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class TimedFloatNamedUnityEvent : UnityEvent<string, TimedFloat> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class TimedFloatDoubleUnityEvent : UnityEvent<TimedFloat, TimedFloat> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class TimedFloatTripleUnityEvent : UnityEvent<TimedFloat, TimedFloat, TimedFloat> { }

@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class IntUnityEvent : UnityEvent<int> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class IntNamedUnityEvent : UnityEvent<string, int> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class IntDoubleUnityEvent : UnityEvent<int, int> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class IntTripleUnityEvent : UnityEvent<int, int, int> { }

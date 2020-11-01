@@ -1,4 +1,4 @@
-Shader "Ahoy/Compute Billboard"
+Shader "Ahoy/Compute Billboard - Geometry"
 {
 Properties{
  

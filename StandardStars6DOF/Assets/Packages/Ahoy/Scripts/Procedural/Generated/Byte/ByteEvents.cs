@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class ByteUnityEvent : UnityEvent<byte> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class ByteNamedUnityEvent : UnityEvent<string, byte> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class ByteDoubleUnityEvent : UnityEvent<byte, byte> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class ByteTripleUnityEvent : UnityEvent<byte, byte, byte> { }

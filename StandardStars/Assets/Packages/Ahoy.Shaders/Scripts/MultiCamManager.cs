@@ -19,6 +19,8 @@ namespace Ahoy.Shaders
 
 		RenderTexture[] renderTextures;
 
+		public RenderTextureFormat format = RenderTextureFormat.ARGBHalf;
+
 		int width, height;
 
 		void OnEnable()
@@ -43,7 +45,7 @@ namespace Ahoy.Shaders
 			if (debug) Debug.Log($"MultiCamManager - reinitializing..");
 			renderTextures = camMatPairs.Select(cmp =>
 			{
-				var tex = new RenderTexture(Screen.width, Screen.height, 16, RenderTextureFormat.ARGB32);
+				var tex = new RenderTexture(Screen.width, Screen.height, 16, format);
 				tex.name = cmp.camera.name;
 				tex.Create();
 

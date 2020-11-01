@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class TimedQuaternionUnityEvent : UnityEvent<TimedQuaternion> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class TimedQuaternionNamedUnityEvent : UnityEvent<string, TimedQuaternion> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class TimedQuaternionDoubleUnityEvent : UnityEvent<TimedQuaternion, TimedQuaternion> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class TimedQuaternionTripleUnityEvent : UnityEvent<TimedQuaternion, TimedQuaternion, TimedQuaternion> { }

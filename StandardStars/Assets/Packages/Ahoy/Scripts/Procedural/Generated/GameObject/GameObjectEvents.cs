@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class GameObjectUnityEvent : UnityEvent<GameObject> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class GameObjectNamedUnityEvent : UnityEvent<string, GameObject> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class GameObjectDoubleUnityEvent : UnityEvent<GameObject, GameObject> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class GameObjectTripleUnityEvent : UnityEvent<GameObject, GameObject, GameObject> { }

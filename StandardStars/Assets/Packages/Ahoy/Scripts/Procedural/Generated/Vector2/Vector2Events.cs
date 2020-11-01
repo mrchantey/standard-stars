@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class Vector2UnityEvent : UnityEvent<Vector2> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class Vector2NamedUnityEvent : UnityEvent<string, Vector2> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class Vector2DoubleUnityEvent : UnityEvent<Vector2, Vector2> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class Vector2TripleUnityEvent : UnityEvent<Vector2, Vector2, Vector2> { }

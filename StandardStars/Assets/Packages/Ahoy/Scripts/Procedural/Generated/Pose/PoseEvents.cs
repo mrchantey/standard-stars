@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class PoseUnityEvent : UnityEvent<Pose> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class PoseNamedUnityEvent : UnityEvent<string, Pose> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class PoseDoubleUnityEvent : UnityEvent<Pose, Pose> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class PoseTripleUnityEvent : UnityEvent<Pose, Pose, Pose> { }

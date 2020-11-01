@@ -7,14 +7,16 @@ namespace Ahoy.Shaders
 	public class ShaderManager : MonoBehaviour
 	{
 
-		[Range(1000, 65534)]
-		public int maxVertsPerMesh = 65534;
 		public Material material;
+		[Range(1000, 65532)]
+		public int maxVertsPerMesh = 65532;
+		public MeshTopology meshTopology = MeshTopology.Points;
+		public bool updateMaterials;
 		protected Material[] matInstances;
 
 		void Update()
 		{
-			if (matInstances == null)
+			if (matInstances == null || !updateMaterials)
 				return;
 			UpdateMaterials();
 		}
@@ -59,7 +61,7 @@ namespace Ahoy.Shaders
 				var subVerts = allVerts.Skip(vi).Take(numVerts).ToArray();
 				var indices = subVerts.Select((v, i) => i).ToArray();
 				mesh.vertices = subVerts;
-				mesh.SetIndices(indices, MeshTopology.Points, 0);
+				mesh.SetIndices(indices, meshTopology, 0);
 				mesh.RecalculateBounds();
 
 				var meshRenderer = go.AddComponent<MeshRenderer>();

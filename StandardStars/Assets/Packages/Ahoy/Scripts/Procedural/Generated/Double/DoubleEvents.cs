@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class DoubleUnityEvent : UnityEvent<double> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class DoubleNamedUnityEvent : UnityEvent<string, double> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class DoubleDoubleUnityEvent : UnityEvent<double, double> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class DoubleTripleUnityEvent : UnityEvent<double, double, double> { }

@@ -18,6 +18,8 @@
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class TransformUnityEvent : UnityEvent<Transform> { }
 /*AUTO SCRIPT*/	[Serializable]
+/*AUTO SCRIPT*/	public class TransformNamedUnityEvent : UnityEvent<string, Transform> { }
+/*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class TransformDoubleUnityEvent : UnityEvent<Transform, Transform> { }
 /*AUTO SCRIPT*/	[Serializable]
 /*AUTO SCRIPT*/	public class TransformTripleUnityEvent : UnityEvent<Transform, Transform, Transform> { }
