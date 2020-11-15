@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Ahoy.Shaders;
 
 namespace StandardStars
@@ -16,6 +17,8 @@ namespace StandardStars
 		public SignatureData signatureData;
 
 		public Camera cam;
+
+		public UnityEvent onInteract;
 
 		public InteractionBehaviour interactionBehaviour;
 		[Range(-1, 1)]
@@ -82,6 +85,7 @@ namespace StandardStars
 					break;
 
 			}
+			onInteract.Invoke();
 		}
 
 	}
