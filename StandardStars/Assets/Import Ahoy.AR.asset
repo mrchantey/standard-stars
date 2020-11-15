@@ -10,16 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a67536fe1cc2dc4781a33d358c25b23, type: 3}
-  m_Name: Import All
+  m_Name: Import Ahoy.AR
   m_EditorClassIdentifier: 
   InvokeOnEnable: 0
   InvokeOnDisable: 0
   selectContents: 0
   paths:
-  - ../../ahoy.unity/Package-Builds/Ahoy
-  - ../../ahoy.unity/Package-Builds/Ahoy.Shaders
-  - ../../ahoy.unity/Package-Builds/Ahoy.Compute
-  - ../../starchart3d/starchart3d
   - ../../ahoy.unity/Package-Builds/Ahoy.AR
   debug: 1
   purgePackagePaths: 0

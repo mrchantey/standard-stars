@@ -15,7 +15,7 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 1, a: 1}
   screenSpace: 0
   size: 1.55
-  scaleRange: 0.2
+  scaleRange: 0.3
   scaleMax: 5
   scaleDivisor: 1000
   glow: 0.04
