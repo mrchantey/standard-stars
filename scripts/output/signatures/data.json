@@ -1,0 +1,14 @@
+{
+  "Items": [
+    {
+      "id": 1,
+      "numFrames": 29,
+      "numLoopFrames": 6
+    },
+    {
+      "id": 2,
+      "numFrames": 29,
+      "numLoopFrames": 6
+    }
+  ]
+}

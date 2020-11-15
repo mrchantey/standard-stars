@@ -18,7 +18,7 @@ namespace Ahoy
 			{
 				Selection.activeGameObject.transform.localPosition = Vector3.zero;
 				Selection.activeGameObject.transform.localScale = Vector3.one;
-				Selection.activeGameObject.transform.rotation = Quaternion.identity;
+				Selection.activeGameObject.transform.localRotation = Quaternion.identity;
 			}
 		}
 

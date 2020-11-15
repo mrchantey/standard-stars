@@ -6,12 +6,12 @@
 
 float4x4 Ahoy_M, Ahoy_V, Ahoy_P, Ahoy_MV, Ahoy_VP, Ahoy_MVP;
 float4 Ahoy_ScreenParams;
-int 
+uint 
 Ahoy_NumThreads, 
 Ahoy_NumThreadsX, 
 Ahoy_NumThreadsY, 
-Ahoy_NumThreadsZ,
-_ScreenSpace;
+Ahoy_NumThreadsZ;
+int _ScreenSpace;
 
 
 float 

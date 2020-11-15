@@ -7,13 +7,14 @@ namespace Ahoy.Shaders
 	public class MaterialsManager : MonoBehaviour
 	{
 
-		[Header("will create new instance of renderer materials on awake")]
+		public bool forceInstantiateRendererMaterials = true;
 		public MeshRenderer[] meshRenderers;
 		public Material[] materials;
 
 		void Awake()
 		{
-			meshRenderers.ForEach(mr => mr.material = Object.Instantiate(mr.material));
+			if (forceInstantiateRendererMaterials)
+				meshRenderers.ForEach(mr => mr.material = Object.Instantiate(mr.material));
 		}
 
 		public void Fade(float from, float target, float totalTime)
