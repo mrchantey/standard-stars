@@ -3,10 +3,23 @@ WIP for Anna Madeleine
 
 # Unity Setup Notes
 
-## StandardStars PC -> Mac
-- Project Settings -> XR Plug-in Management -> ARKit
+## StandardStars iOS Build
+- Build Settings -> iOS
+- Project Settings -> XR Plug-in Management -> ARKit: true
 - Assets -> Materials -> 2D Cam Tex Mat -> InvertY: true
 - Assets -> Materials -> 3D Cam Tex Mat -> InvertY: true
+- Assets -> Materials -> Starchart 3D Constellations -> ZTest: Always
+- Assets -> Materials -> Starchart 3D Stars -> ZTest: Always
+
+## StandardStars iOS Builds
+- Build Settings -> Android
+- Project Settings -> XR Plug-in Management -> ARCore: true
+- Assets -> Materials -> 2D Cam Tex Mat -> InvertY: false
+- Assets -> Materials -> 3D Cam Tex Mat -> InvertY: false
+- Assets -> Materials -> Starchart 3D Constellations -> ZTest: GreaterEqual
+- Assets -> Materials -> Starchart 3D Stars -> ZTest: GreaterEqual
+
+
 
 ## Export iOS in Xcode
 1. Product -> Build For -> Any iOS Device
