@@ -6,6 +6,7 @@ Shader "Ahoy/Screen Space Texture"
 		_MainTex ("Texture", 2D) = "white" {}
         _Color ("Color",Color) = (0,1,1,0.5)
 		_Vignette ("Scale",Range(0,1)) = 0.5
+		[MaterialToggle] _InvertY("Invert Y Axis", Float) = 0
 
 		[Header(Blending)][Space(10)]
 		[Enum (UnityEngine.Rendering.BlendMode)] _BlendSource("Blend Source",Float) =  5		//srcAlpha
@@ -61,11 +62,12 @@ Shader "Ahoy/Screen Space Texture"
 
             fixed4 _Color;
 			float _Vignette;
+			float _InvertY;
 
             fixed4 frag (v2f i) : SV_Target
             {
 				float2 uvScreen = i.screenPos.xy / i.screenPos.w;
-				if (_ProjectionParams.x < 0)
+				if (_InvertY)
 					uvScreen.y = 1 - uvScreen.y;
 				// float aspect = _ScreenParams.x / _ScreenParams.y;
 				// uvScreen.x *= aspect;

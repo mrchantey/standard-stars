@@ -3,15 +3,18 @@ WIP for Anna Madeleine
 
 # Unity Setup Notes
 
-- StandardStars -> StandardStars6DOF
-	- Move Camera Rig to Pose Aggregated Camera Rig -> Aggregator Parent -> AggregatedPose
-	- Add Event Listener to On Reset Button Click: ArOrigin-> Reset
+## StandardStars PC -> Mac
+- Project Settings -> XR Plug-in Management -> ARKit
+- Assets -> Materials -> 2D Cam Tex Mat -> InvertY: true
+- Assets -> Materials -> 3D Cam Tex Mat -> InvertY: true
 
-
-- StandardStars6DOF PC -> Mac
-	- Add Team Id - V5H6L32832
-	- Add Bundle Identifier - org.chantey.standardstars
-	- Add Camera Permissions
+## Export iOS in Xcode
+1. Product -> Build For -> Any iOS Device
+2. Product -> Archive
+3. Organizer -> Distribute App --> Development
+	- App Thinning: None
+	- Rebuild from Bitcode: true
+	- Include Manifest for over-the-air installation: false
 
 # Signature Import Requirements
 
@@ -23,19 +26,11 @@ WIP for Anna Madeleine
 - each signature should have an id associated which can later be related to the observer
 - the images for each signature must be placed in a folder with the following format 'id-completeframecount', i.e. "1-5"
 
-
-# Mechanics
-- Plate views
-	- randomly placed on a point on a sphere of radius 0.5 meters.
-	- could be placed in a circle instead to avoid people craning their necks etc.
-- Hot-cold targeting system
-	
-
-# To Do
-- Match 
+[More Info](https://wiki.genexus.com/commwiki/servlet/wiki?34616,HowTo%3A+Create+an+.ipa+file+from+XCode)
 
 
 ## Dependencies
 - [Ahoy](https://github.com/mrchantey/ahoy.unity/raw/master/Package-Builds/Ahoy.unitypackage)
 - [Ahoy.Shaders](https://github.com/mrchantey/ahoy.unity/raw/master/Package-Builds/Ahoy.Shaders.unitypackage)
 - [Starchart3d](https://github.com/mrchantey/starchart3d/raw/master/starchart3d.unitypackage)
+- [Ahoy.AR]
