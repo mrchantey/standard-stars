@@ -15,5 +15,8 @@ MonoBehaviour:
   images:
   - {fileID: 2800000, guid: e0b233270cc90344b8496d89e6a768b9, type: 3}
   - {fileID: 2800000, guid: 8199bcb2b036b2f4094a8d5b6a362d54, type: 3}
+  - {fileID: 2800000, guid: 8ecc4b760211c854b94cdf53fa4c5b49, type: 3}
+  - {fileID: 2800000, guid: c513724c70e2764429d38488c897169c, type: 3}
+  - {fileID: 2800000, guid: dd60611e59dc78e42a2abad3bc397ac3, type: 3}
   signaturesJson: {fileID: 4900000, guid: 9f1d9b679d7cfd642ad3fde78899db37, type: 3}
   prefab: {fileID: 8962026035445354029, guid: 0411cdd833d23514694399b5c2d6c22d, type: 3}

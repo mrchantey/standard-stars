@@ -18,15 +18,15 @@ WIP for Anna Madeleine
 - Project Settings -> XR Plug-in Management -> ARKit: true
 - Assets -> Materials -> Starchart - 2D - Cam Tex -> InvertY: true
 - Assets -> Materials -> Starchart - 3D - Cam Tex -> InvertY: true
-- Assets -> Materials -> Starchart - 3D - Constellations -> ZTest: Always
-- Assets -> Materials -> Starchart - 3D - Stars -> ZTest: Always
+- Assets -> Materials -> Starchart - 3D - Constellation -> ZTest: Always
+- Assets -> Materials -> Starchart - 3D - Star -> ZTest: Always
 
 ## Android Build
 - Build Settings -> Android
 - Project Settings -> XR Plug-in Management -> ARCore: true
 - Assets -> Materials -> Starchart - 2D - Cam Tex -> InvertY: false
 - Assets -> Materials -> Starchart - 3D - Cam Tex -> InvertY: false
-- Assets -> Materials -> Starchart - 3D - Constellations -> ZTest: GreaterEqual
+- Assets -> Materials -> Starchart - 3D - Constellation -> ZTest: GreaterEqual
 - Assets -> Materials -> Starchart - 3D - Star -> ZTest: GreaterEqual
 
 ## Export iOS in Xcode

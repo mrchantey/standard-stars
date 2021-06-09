@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Starchart - 3D - Cam Tex Reverse Side
   m_Shader: {fileID: 4800000, guid: f719fbfd3345e8f4084f093aecc6b9c1, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _INVERTY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -73,7 +73,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _InvertY: 0
+    - _InvertY: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
